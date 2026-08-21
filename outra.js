@@ -20,10 +20,12 @@ formulario.addEventListener("submit", async function(event) {
     };
 
     const botao = formulario.querySelector("button");
+
     botao.disabled = true;
     botao.textContent = "ENVIANDO... ❤️";
 
     try {
+
         const resposta = await fetch("https://formspree.io/f/mdenblzl", {
             method: "POST",
             headers: {
@@ -40,6 +42,7 @@ formulario.addEventListener("submit", async function(event) {
         window.location.href = "final.html";
 
     } catch (erro) {
+
         console.error("Erro:", erro);
 
         botao.disabled = false;
