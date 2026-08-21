@@ -23,13 +23,9 @@ lugares.forEach((lugar) => {
         const tipo = localStorage.getItem("tipoEscolha") || lugar.dataset.tipo || "Não informado";
         const escolha = lugar.dataset.escolha || "Não informado";
 
-        mensagem.textContent = "Perfeito ❤️ Agora é só esperar chegar o sábado para eu te levar...";
-
-        mensagem.classList.add("ativa");
-
         try {
 
-            await fetch("https://formspree.io/f/mdenblzl", {
+            const resposta = await fetch("https://formspree.io/f/mdenblzl", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -44,15 +40,25 @@ lugares.forEach((lugar) => {
                 })
             });
 
+            if (!resposta.ok) {
+                throw new Error("Erro ao enviar escolha");
+            }
+
+            localStorage.setItem("tocarMusica", "true");
+
+            window.location.href = "final.html";
+
         } catch (erro) {
 
             console.error("Erro ao enviar escolha:", erro);
 
-        }
+            mensagem.textContent = "Ocorreu um probleminha ao enviar 😭 Tenta novamente?";
+            mensagem.classList.add("ativa");
 
-        setTimeout(() => {
-            mensagem.classList.remove("ativa");
-        }, 5000);
+            setTimeout(() => {
+                mensagem.classList.remove("ativa");
+            }, 5000);
+        }
 
     });
 
