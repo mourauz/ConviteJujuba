@@ -37,8 +37,6 @@ formulario.addEventListener("submit", async function(event) {
             throw new Error("Erro ao enviar formulário");
         }
 
-        // Formspree recebeu a escolha com sucesso.
-        // Agora vai para a página especial.
         window.location.href = "final.html";
 
     } catch (erro) {
