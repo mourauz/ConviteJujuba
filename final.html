@@ -3,16 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pra você</title>
+    <title>Para você ❤️</title>
 
     <link rel="stylesheet" href="final.css">
 </head>
 
 <body>
 
-    <audio id="musica" loop>
+    <audio id="musica" autoplay loop playsinline>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
@@ -22,66 +22,79 @@
 
         <div class="card">
 
-            <h1></h1>
+            <h1>Perfeito ❤️</h1>
 
-            <img src="monkeygira.jpg" alt="Nós" class="foto">
+            <img
+                src="monkeygira.jpg"
+                alt="Nós"
+                class="foto"
+            >
 
             <p class="mensagem">
                 Agora é só esperar chegar o sábado...
             </p>
 
             <p class="final">
-                E já estou com tanta saudade de te dar um cheiro, meu deus...
+                Eu mal posso esperar para te ver. ❤️
             </p>
-
-            <button id="botaoMusica">
-                Tocar música 
-            </button>
 
         </div>
 
     </main>
 
     <script>
+
         const musica = document.getElementById("musica");
-        const botaoMusica = document.getElementById("botaoMusica");
-        const emojisContainer = document.getElementById("emojis");
 
         musica.volume = 0.6;
 
-        musica.play()
-            .then(() => {
-                botaoMusica.style.display = "none";
-            })
-            .catch(() => {
-                botaoMusica.style.display = "block";
+        if (sessionStorage.getItem("tocarMusica") === "true") {
+
+            sessionStorage.removeItem("tocarMusica");
+
+            musica.play().catch(() => {
+
+                document.addEventListener("touchstart", function iniciarMusica() {
+
+                    musica.play().catch(() => {});
+
+                    document.removeEventListener("touchstart", iniciarMusica);
+
+                }, { once: true });
+
             });
 
-        botaoMusica.addEventListener("click", function() {
-            musica.play().then(() => {
-                botaoMusica.style.display = "none";
-            });
-        });
+        }
+
+        const emojisContainer = document.getElementById("emojis");
 
         const emojis = [
-            "🍊",
-            "🧡",
-            "🌻",
-            "🌼",
-            "🎆",
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💘",
             "🌹",
-            "✨"
+            "✨",
+            "🥰"
         ];
 
         function criarEmoji() {
+
             const emoji = document.createElement("span");
 
             emoji.className = "emoji";
-            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+            emoji.textContent =
+                emojis[Math.floor(Math.random() * emojis.length)];
 
             emoji.style.left = Math.random() * 100 + "%";
-            emoji.style.fontSize = (Math.random() * 12 + 16) + "px";
-            emoji.style.animationDuration = (Math.random() * 3 + 5) + "s";
+
+            emoji.style.fontSize =
+                (Math.random() * 12 + 16) + "px";
+
+            emoji.style.animationDuration =
+                (Math.random() * 3 + 5) + "s";
 
             emojisContainer.appendChild(emoji);
 
@@ -91,6 +104,7 @@
         }
 
         setInterval(criarEmoji, 500);
+
     </script>
 
 </body>
