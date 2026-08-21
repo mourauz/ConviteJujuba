@@ -21,7 +21,7 @@ body {
 }
 
 .header_text {
-    font-size: 40px;
+    font-size: 33px;
     line-height: 1.25;
     font-weight: bold;
     color: #982b03;
@@ -36,7 +36,7 @@ body {
 }
 
 .gif_container img {
-    width: 220px;
+    width: 200px;
     max-width: 70vw;
     height: auto;
     border-radius: 20px;
@@ -99,9 +99,9 @@ body {
     }
 
     .gif_container img {
-        width: 180px;
+        width: 170px;
         max-width: 65vw;
-        border-radius: 18px;
+        border-radius: 20px;
     }
 
     .buttons {
@@ -121,11 +121,11 @@ body {
 @media (max-width: 380px) {
 
     .header_text {
-        font-size: 24px;
+        font-size: 21px;
     }
 
     .gif_container img {
-        width: 155px;
+        width: 145px;
     }
 
     .buttons {
