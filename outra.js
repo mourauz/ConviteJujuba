@@ -39,6 +39,8 @@ formulario.addEventListener("submit", async function(event) {
             throw new Error("Erro ao enviar formulário");
         }
 
+        sessionStorage.setItem("tocarMusica", "true");
+
         window.location.href = "final.html";
 
     } catch (erro) {
