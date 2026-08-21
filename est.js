@@ -46,13 +46,14 @@ lugares.forEach((lugar) => {
 
             localStorage.setItem("tocarMusica", "true");
 
-            window.location.href = "final.html";
+            window.location.replace("final.html");
 
         } catch (erro) {
 
             console.error("Erro ao enviar escolha:", erro);
 
             mensagem.textContent = "Ocorreu um probleminha ao enviar 😭 Tenta novamente?";
+
             mensagem.classList.add("ativa");
 
             setTimeout(() => {
