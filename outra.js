@@ -37,21 +37,21 @@ formulario.addEventListener("submit", async function(event) {
             throw new Error("Erro ao enviar formulário");
         }
 
-        formulario.style.display = "none";
-        mensagem.innerHTML = `
-            Perfeito ❤️<br><br>
-            Agora é só esperar chegar o sábado para eu te levar...
-        `;
-        mensagem.classList.add("ativa");
+        // Formspree recebeu a escolha com sucesso.
+        // Agora vai para a página especial.
+        window.location.href = "final.html";
 
     } catch (erro) {
         console.error("Erro:", erro);
+
         botao.disabled = false;
         botao.textContent = "ENVIAR MINHA ESCOLHA ❤️";
+
         mensagem.innerHTML = `
             Ocorreu um probleminha ao enviar 😭<br>
             Tenta novamente?
         `;
+
         mensagem.classList.add("ativa");
     }
 });
