@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="outra.css">
+    <title>Fica a seu critério 🧡</title>
+</head>
+
+<body>
+
+    <div class="form-container">
+
+        <div class="titulo">
+            <div>🧡</div>
+
+            <h1>Então você quer escolher?</h1>
+
+            <p>
+                Tudo bem, JuJuBa<br>
+                Dessa vez eu deixo a decisão nas suas mãos 🫣
+            </p>
+        </div>
+
+        <form action="https://formspree.io/f/mdenblzl" method="POST">
+
+            <input type="hidden" name="tipo" value="Outra coisa">
+
+            <label for="lugar">📍 Qual lugar você gostaria de ir?</label>
+
+            <input
+                type="text"
+                id="lugar"
+                name="lugar"
+                placeholder="Ex: Praia, restaurante, cinema..."
+                required
+            >
+
+            <label for="horario">🕐 Qual horário?</label>
+
+            <input
+                type="time"
+                id="horario"
+                name="horario"
+                required
+            >
+
+            <label for="maps">🗺️ Link do Google Maps</label>
+
+            <input
+                type="url"
+                id="maps"
+                name="google_maps"
+                placeholder="Cole o link aqui (opcional)"
+            >
+
+            <label for="mensagem">💭 Quer deixar alguma observação?</label>
+
+            <textarea
+                id="mensagem"
+                name="observacao"
+                placeholder="Pode escrever qualquer coisa que quiser..."
+            ></textarea>
+
+            <button type="submit">
+                Mandar minha escolha ❤️
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
